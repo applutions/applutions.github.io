@@ -121,6 +121,10 @@
     flex-direction: column;
     justify-content: center;
 }
+.underlier{
+    background: transparent linear-gradient(270deg, #FF034A 0%, #D9006D 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
 
 .post__media{
     background: #FFFFFF 0% 0% no-repeat padding-box;
