@@ -269,13 +269,13 @@ $('#back-to-top').on('click', function (e) {
 //*
 
 var wh = $(window).height(),
-    half = wh ,
+    half = wh/2 ,
     headerHeight = $('header').outerHeight();
 
 $(window).scroll(function() {
 	var scrollTop = $(window).scrollTop();
 
-if(scrollTop ==  half) {
+if(scrollTop <=  half) {
 		$('header').addClass('is-scroll');
 	}else {
 		$('header').addClass('is-scroll');
