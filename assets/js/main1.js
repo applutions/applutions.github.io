@@ -74,125 +74,125 @@ $('.grid__inner').masonry({
  * grid css
  */
 
-$.fn.reCalWidth = function() {
-	var $self = $(this);
-	$self.on('reCalWidth', function() {
-		var _self = $(this);
-		_self.css('width', '');
-		var width = Math.floor(_self.width());
-		_self.css('width', width + 'px');
-		var height = Math.floor(_self.parent().children('.wide').width()/2);
-		_self.parent().children('.wide').css('height', height + 'px');
-	});
-	$(window).on('resize', function() {
-		$self.trigger('reCalWidth');
-	});
-}
-function work() {
-	$('.grid-css').each(function() {
-		var workWrapper = $(this),
-			workContainer = $('.grid__inner', workWrapper),
-			filters = $('.filter', workWrapper),
-			filterCurrent = $('.current a', filters),
-			filterLiCurrent = $('.current', filters),
-			duration = 0.3;
-		workContainer.imagesLoaded( function() {
-
-// Fix Height
-			if( workWrapper.hasClass('grid-css--fixheight')) {
-				workContainer.find('.grid-item__content-wrapper').matchHeight();
-			}
-
-workContainer.isotope({
-				layoutMode: 'masonry',
-				itemSelector: '.grid-item',
-				transitionDuration: duration + 's',
-				masonry: {
-					columnWidth: '.grid-sizer'
-				},
-				// hiddenStyle: {},
-				// visibleStyle: {}
-			});
-		});
-		filters.on('click', 'a', function(e) {
-			e.preventDefault();
-			var $el = $(this);
-			var selector = $el.attr('data-filter');
-			filters.find('.current').removeClass('current');
-			$el.parent().addClass('current');
-			workContainer.isotope({
-				filter: selector
-			});
-		});
-
-filters.find('.select-filter').change(function() {
-			var $el = $(this);
-			var selector = $el.val();
-			workContainer.isotope({
-				filter: selector
-			});
-		});
-
-$('.grid-item', workWrapper).reCalWidth();
-	});
-}
-work();
-
-$('.portfolio').magnificPopup({
-    delegate: 'a',
-    type: 'image',
-    closeOnContentClick: true,
-    closeBtnInside: true,
-    fixedContentPos: true,
-    closeMarkup: '<button title="%title%" type="button" class="mfp-close"><i class="pe-7s-close"></i></button>',
-
-removalDelay: 500, //delay removal by X to allow out-animation
-    callbacks: {
-        beforeOpen: function() {
-            this.st.mainClass = this.st.el.attr('data-effect');
-        }
-    },
-    midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-});
-
-$('.portfolio .popup-video').magnificPopup({
-    disableOn: 700,
-    type: 'iframe',
-    preloader: false,
-    closeOnContentClick: true,
-    closeBtnInside: true,
-    fixedContentPos: true,
-    closeMarkup: '<button title="%title%" type="button" class="mfp-close"><i class="pe-7s-close"></i></button>',
-
-removalDelay: 500, //delay removal by X to allow out-animation
-    callbacks: {
-        beforeOpen: function() {
-            this.st.mainClass = this.st.el.attr('data-effect');
-        }
-    },
-    midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
-});
+// $.fn.reCalWidth = function() {
+// 	var $self = $(this);
+// 	$self.on('reCalWidth', function() {
+// 		var _self = $(this);
+// 		_self.css('width', '');
+// 		var width = Math.floor(_self.width());
+// 		_self.css('width', width + 'px');
+// 		var height = Math.floor(_self.parent().children('.wide').width()/2);
+// 		_self.parent().children('.wide').css('height', height + 'px');
+// 	});
+// 	$(window).on('resize', function() {
+// 		$self.trigger('reCalWidth');
+// 	});
+// }
+// function work() {
+// 	$('.grid-css').each(function() {
+// 		var workWrapper = $(this),
+// 			workContainer = $('.grid__inner', workWrapper),
+// 			filters = $('.filter', workWrapper),
+// 			filterCurrent = $('.current a', filters),
+// 			filterLiCurrent = $('.current', filters),
+// 			duration = 0.3;
+// 		workContainer.imagesLoaded( function() {
+//
+// // Fix Height
+// 			if( workWrapper.hasClass('grid-css--fixheight')) {
+// 				workContainer.find('.grid-item__content-wrapper').matchHeight();
+// 			}
+//
+// workContainer.isotope({
+// 				layoutMode: 'masonry',
+// 				itemSelector: '.grid-item',
+// 				transitionDuration: duration + 's',
+// 				masonry: {
+// 					columnWidth: '.grid-sizer'
+// 				},
+// 				// hiddenStyle: {},
+// 				// visibleStyle: {}
+// 			});
+// 		});
+// 		filters.on('click', 'a', function(e) {
+// 			e.preventDefault();
+// 			var $el = $(this);
+// 			var selector = $el.attr('data-filter');
+// 			filters.find('.current').removeClass('current');
+// 			$el.parent().addClass('current');
+// 			workContainer.isotope({
+// 				filter: selector
+// 			});
+// 		});
+//
+// filters.find('.select-filter').change(function() {
+// 			var $el = $(this);
+// 			var selector = $el.val();
+// 			workContainer.isotope({
+// 				filter: selector
+// 			});
+// 		});
+//
+// $('.grid-item', workWrapper).reCalWidth();
+// 	});
+// }
+// work();
+//
+// $('.portfolio').magnificPopup({
+//     delegate: 'a',
+//     type: 'image',
+//     closeOnContentClick: true,
+//     closeBtnInside: true,
+//     fixedContentPos: true,
+//     closeMarkup: '<button title="%title%" type="button" class="mfp-close"><i class="pe-7s-close"></i></button>',
+//
+// removalDelay: 500, //delay removal by X to allow out-animation
+//     callbacks: {
+//         beforeOpen: function() {
+//             this.st.mainClass = this.st.el.attr('data-effect');
+//         }
+//     },
+//     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+// });
+//
+// $('.portfolio .popup-video').magnificPopup({
+//     disableOn: 700,
+//     type: 'iframe',
+//     preloader: false,
+//     closeOnContentClick: true,
+//     closeBtnInside: true,
+//     fixedContentPos: true,
+//     closeMarkup: '<button title="%title%" type="button" class="mfp-close"><i class="pe-7s-close"></i></button>',
+//
+// removalDelay: 500, //delay removal by X to allow out-animation
+//     callbacks: {
+//         beforeOpen: function() {
+//             this.st.mainClass = this.st.el.attr('data-effect');
+//         }
+//     },
+//     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
+// });
 /**
  *  Slide Custom
  */
-if( $('.slide-item').length ) {
-	var $sync1 = $(".slide-image__front .swiper-container"),
-		$sync2 = $(".slide-image__black .swiper-container");
-
-var galleryTop = new Swiper($sync1, {
-        spaceBetween: 10,
-    });
-    var galleryThumbs = new Swiper($sync2, {
-		spaceBetween: 10,
-		centeredSlides: true,
-		slidesPerView: 'auto',
-		touchRatio: 0.2,
-		slideToClickedSlide: true,
-	});
-
-galleryTop.params.control = galleryThumbs;
-    galleryThumbs.params.control = galleryTop;
-}
+// if( $('.slide-item').length ) {
+// 	var $sync1 = $(".slide-image__front .swiper-container"),
+// 		$sync2 = $(".slide-image__black .swiper-container");
+//
+// var galleryTop = new Swiper($sync1, {
+//         spaceBetween: 10,
+//     });
+//     var galleryThumbs = new Swiper($sync2, {
+// 		spaceBetween: 10,
+// 		centeredSlides: true,
+// 		slidesPerView: 'auto',
+// 		touchRatio: 0.2,
+// 		slideToClickedSlide: true,
+// 	});
+//
+// galleryTop.params.control = galleryThumbs;
+//     galleryThumbs.params.control = galleryTop;
+// }
 
 /**
  * Swiper
@@ -241,6 +241,7 @@ if (selector.length > 0) {
 /**
  * Typing effect
  */
+
 $('.typing__module').each(function(index) {
 	var self = $(this),
 		_wrapper = $('.typed', self)[0],
