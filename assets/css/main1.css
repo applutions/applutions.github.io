@@ -1644,7 +1644,17 @@ ul {
     background-size: cover;
     padding: 150px 0 100px;
 }
-.container>.row {clear:both}
+/* .container>.row {clear:both} */
+/* .container > .row { display: flex; } */
+/* 
+* This is to fix layout issues in Safari
+* source:
+* https: //stackoverflow.com/questions/49403391/bootstrap-4-safari-on-mac-grid-issue
+*/
+.row:before,
+.row:after {
+    display: none !important;
+}
 .hero__wrapper #back-to-down {
     display: inline-block;
     font-size: 40px;
